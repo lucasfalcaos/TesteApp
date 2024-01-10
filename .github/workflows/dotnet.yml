@@ -43,6 +43,6 @@ jobs:
         application_name: AppTeste
         environment_name: AppTeste-env
         version_label: ${{ github.run_id }}
-        region: us-west-1  
+        region: us-east-1  
         version_description: ${{github.SHA}}
         deployment_package: deploy.zip
