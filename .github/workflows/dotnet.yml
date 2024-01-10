@@ -34,7 +34,7 @@ jobs:
     - name: Zip Package
       run: |
         cd: ${{ github.workspace }}/out
-        zip -r ${{ github.workspace }}/out.zip*
+        zip -r ${{ github.workspace }}/out.zip *
         
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v21
@@ -43,7 +43,7 @@ jobs:
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         application_name: AppTeste
         environment_name: AppTeste-env
-        version_label: 12345
+        version_label: ${{ github.run_id }}
         region: us-west-1  
         version_description: ${{github.SHA}}
         deployment_package: ${{ github.workspace }}/out.zip
